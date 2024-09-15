@@ -1,0 +1,15 @@
+.tip {
+  border: 1px solid #f3f5f7;
+  border-color: #42b983;
+  padding: 1rem 1.5rem;
+  border-left-width: .5rem;
+  border-left-style: solid;
+  margin: 1rem 0;
+}
+.heading { font-weight: bold; margin-bottom: .5rem; }
+.warning { border-color: coral; }
+.danger { border-color: crimson; }
+
+@media (min-width: 960px) {
+  .tip { max-width: 620px; }
+}

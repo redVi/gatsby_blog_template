@@ -1,0 +1,173 @@
+---
+h1: Markdown Syntax Guide
+title: Markdown title
+description: Markdown description
+date: 2024-15-09
+tags: [markdown]
+slug: md-syntax
+category: posts
+lang: en
+image: "smb.jpg"
+table_of_contents: true
+---
+
+import { Tip } from "components/tip"
+import { Tabs, Tab } from "components/tabs"
+
+This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
+
+## Headings
+
+The following HTML `<h1>—<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+
+## Paragraph
+
+Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+
+Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
+
+## Image
+
+![Alt](./sphere.jpg)
+
+## Blockquotes
+
+The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+
+### Blockquote without attribution
+
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae. **Note** that you can use _Markdown syntax_ within a blockquote.
+
+## Tables
+
+Tables aren’t [part of the core Markdown spec](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), but Hugo supports supports them out-of-the-box.
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+## Code block with backticks
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example HTML5 Document</title>
+</head>
+<body>
+  <p>Test</p>
+</body>
+</html>
+```
+
+## List Types
+
+#### Ordered List
+1. First item
+2. Second item
+3. Third item
+
+#### Unordered List
+
+- List item
+- Another item
+- And another item
+
+#### Nested list
+
+- Fruit
+  - Apple
+  - Orange
+  - Banana
+- Dairy
+  - Milk
+  -Cheese
+
+## Tabs
+<Tabs headings={['routes.rb', 'App.vue']}>
+<Tab>
+
+```rb
+# app/routes.rb
+get '/posts/:id/edit/' do
+  @title = 'Update post'
+  @post = Post.find(params[:id])
+  erb :'posts/edit'
+end
+
+put '/posts/:id/edit/' do
+  @post = Post.find(params[:id])
+  if @post.update_attributes(params[:post])
+    redirect to '/'
+  else
+    erb :'posts/edit'
+  end
+end
+```
+</Tab>
+
+<Tab>
+
+Vue code
+
+```vue
+<template>
+  <div id="app">
+    <sidebar :data="tree" @handleClick="handleClick" />
+  </div>
+</template>
+
+<script>
+import tree from './tree'
+import Sidebar from './components/Sidebar'
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      tree
+    }
+  },
+  components: {
+    Sidebar
+  },
+  methods: {
+    handleClick (node) {
+      console.log('Clicked: ', node.name)
+    }
+  }
+}
+</script>
+```
+</Tab>
+</Tabs>
+
+## Tips
+
+<Tip heading="Default!">
+Hello, I am the Tip!
+</Tip>
+
+<Tip heading="Warning!" type="warning">
+Warning! These docs are old and won’t be updated. Go to react.dev for the new React docs.
+</Tip>
+
+<Tip heading="Danger!" type="danger">
+Danger! This entry may be outdated&
+</Tip>
+
+## Other Elements — abbr, sub, sup, kbd, mark
+
+GIF is a bitmap image format.
+
+H2O
+
+Xn + Yn = Zn
+Press CTRL+ALT+Delete to end the session.
+
+Most salamanders are nocturnal, and hunt for insects, worms, and other small creatures.
+
+<iframe src="https://www.youtube.com/embed/RFMOWX0_Wzo?si=1y6ZaYp8Kw0xDt66" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

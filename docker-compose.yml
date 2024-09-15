@@ -1,0 +1,18 @@
+services:
+  gatsby:
+    container_name: gatsby
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - '.:/app'
+      - node_modules:/app/node_modules
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "1"
+      GATSBY_WEBPACK_PUBLICPATH: "/"
+
+volumes:
+  node_modules:

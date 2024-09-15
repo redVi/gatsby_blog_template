@@ -1,0 +1,563 @@
+:root {
+  --codeTextColor: #36313d;
+  --codeTextColor2: #657b83;
+  --codeLabelColor: #ffffff;
+  --codeLine: #f99;
+  --numbersColor: #999;
+  --selectionBg: #073642;
+  --highlightBg: #fbfdff;
+ /* --highlightBg: #f7f7f7; */
+  --highlightBorder: #e5e8ec;
+  --tokenComment: #93a1a1;
+  --tokenPunctuation: #586e75;
+  --tokenConstant: #268bd2;
+  --tokenEntity: #657b83;
+  --tokenSelector: #2aa198;
+  --tokenKeyword: #859900;
+  --tokenClassName: #b58900;
+  --tokenVar: #cb4b16;
+  --tokenDoctype: #527713;
+  --tokenFunc: #b94185;
+  --tokenNumber: #137886;
+  --tokenPun: #53450e;
+  --tokenAtrule: #096fb3;
+  --tokenInserted: #088413;
+  --tokenDeleted: #da0013;
+  --tokenImportant: #dc0437;
+  --tokenString: #a2466c;
+}
+.inverted {
+  --codeTextColor: #fafafa;
+  --codeTextColor2: #ABB2BF;
+  --codeLabelColor: #36313d;
+  --highlightBg: #1b1a20;
+  --highlightBorder: rgba(0, 0, 0, 0.5);
+  --tokenDoctype: #98c379;
+  --tokenNumber: #d19a66;
+  --tokenPun: #d1d1d1;
+  --tokenAtrule: #f99;
+  --tokenFunc: #61afef;
+  --tokenVar: tomato;
+  --tokenImportant: #c678dd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --codeTextColor: #fafafa;
+    --codeTextColor2: #ABB2BF;
+    --codeLabelColor: #36313d;
+    --highlightBg: #1b1a20;
+    --highlightBorder: rgba(0, 0, 0, 0.5);
+    --tokenDoctype: #98c379;
+    --tokenNumber: #d19a66;
+    --tokenPun: #d1d1d1;
+    --tokenAtrule: #f99;
+    --tokenFunc: #61afef;
+    --tokenVar: tomato;
+    --tokenImportant: #c678dd;
+  }
+  .inverted {
+    --codeTextColor: #36313d;
+    --codeTextColor2: #657b83;
+    --codeLabelColor: #ffffff;
+    --highlightBg: #fbfdff;
+    /* --highlightBg: #f7f7f7; */
+    --highlightBorder: #e5e8ec;
+    --tokenDoctype: #527713;
+    --tokenNumber: #137886;
+    --tokenPun: #53450e;
+    --tokenAtrule: #096fb3;
+    --tokenFunc: #b94185;
+    --tokenVar: #cb4b16;
+    --tokenImportant: #dc0437;
+  }
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  float: left;
+  color: var(--codeTextColor2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  tab-size: 2;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  background-color: transparent;
+  margin: 0;
+  hyphens: none;
+  border-radius: 0.3em;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gatsby-highlight-code-line {
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid var(--codeLine);
+}
+
+.gatsby-highlight {
+  color: var(--codeTextColor);
+  background-color: var(--highlightBg);
+  border: 1px solid var(--highlightBorder);
+  border-radius: 4px;
+  padding: 1em;
+  overflow: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gatsby-highlight[data-language]::before {
+  color: var(--codeLabelColor);
+  font-size: 0.75rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  position: absolute;
+  right: 1.5rem;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0px;
+  border-radius: 0px 0px 4px 4px;
+  padding: 0.25rem 0.5rem;
+  display: none;
+}
+
+@media screen and (min-width: 640px) {
+  .gatsby-highlight[data-language]::before {
+    display: block;
+  }
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  background: var(--selectionBg);
+}
+
+code {
+  color: var(--codeTextColor2);
+  font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: .95em;
+}
+
+pre[class*="language-"], pre code {
+  color: var(--codeTextColor2);
+  font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+  font-size: 0.9em;
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+
+/* Line Numbers */
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  border-right: 1px solid var(--numbersColor);
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: var(--numbersColor);
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+/* Command Line Prompt */
+.command-line-prompt {
+  border-right: 1px solid var(--numbersColor);
+  display: block;
+  margin-bottom: 5px;
+  font-size: 100%;
+  letter-spacing: -0.3px;
+  margin-right: 1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.command-line-prompt > span:before {
+  color: var(--numbersColor);
+  content: ' ';
+  display: block;
+  padding-right: 0.8em;
+}
+
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
+.command-line-prompt > span:before {
+  color: var(--numbersColor);
+  content: " ";
+  display: block;
+  padding-right: 0.8em;
+}
+
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--tokenComment);
+}
+
+.token.punctuation {
+  color: var(--tokenPunctuation);
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--tokenConstant);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+  color: var(--tokenSelector);
+}
+
+.token.entity {
+  color: var(--tokenEntity);
+  background: #eee8d5; /* base2 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--tokenKeyword);
+}
+
+.token.function,
+.token.class-name {
+  color: var(--tokenClassName);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--tokenVar);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+  padding-left: 2.8em;
+}
+
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
+  color: var(--tokenDoctype);
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.function, .token.builtin {
+  color: var(--tokenFunc);
+}
+
+.token {
+    display: inline;
+}
+
+.token.comment,.token.block-comment,.token.prolog,.token.doctype,.token.cdata {
+    color: var(--tokenDoctype);
+}
+
+.token.property,.token.tag,.token.boolean,.token.number,.token.function-name,.token.constant,.token.symbol {
+    color: var(--tokenNumber);
+}
+
+.token.punctuation {
+    color: var(--tokenPun);
+}
+
+.token.selector,.token.attr-name,.token.string,.token.char,.token.function,.token.builtin {
+    color: var(--tokenFunc);
+}
+
+.token.atrule,.token.attr-value,.token.keyword,.token.class-name {
+    color: var(--tokenAtrule);
+}
+
+.token.inserted {
+    color: var(--tokenInserted);
+}
+
+.token.deleted {
+    color: var(--tokenDeleted);
+}
+
+.token.regex,.token.important {
+    color: var(--tokenImportant);
+}
+
+.language-css .token.string,.style .token.string {
+    color: var(--tokenString);
+}
+
+.token.important {
+    font-weight: 400;
+}
+
+.token.bold {
+    font-weight: 700;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token-line > span.token:empty::after {
+  min-height: 1em;
+  display: inline-block;
+  content: "";
+}
+
+.namespace {
+    opacity: 0.7;
+}
+
+.token.tab:not(:empty):before,.token.cr:before,.token.lf:before {
+  color: #e0d7d1;
+}
+
+.gatsby-highlight[data-language='jsx']::before,
+.gatsby-highlight[data-language='javascript']::before,
+.gatsby-highlight[data-language='js']::before {
+  background: #ffd01b;
+  color: #36313d;
+}
+.gatsby-highlight[data-language='jsx']::before {
+  content: 'js';
+}
+.gatsby-highlight[data-language='javascript']::before {
+  content: 'js';
+}
+.gatsby-highlight[data-language='js']::before {
+  content: 'js';
+}
+
+.gatsby-highlight[data-language='jsx']::before {
+  content: 'jsx';
+  background: #61dafb;
+}
+
+.gatsby-highlight[data-language='typescript']::before,
+.gatsby-highlight[data-language='ts']::before,
+.gatsby-highlight[data-language='tsx']::before {
+  background: #294e80;
+  color: #ffffff;
+}
+.gatsby-highlight[data-language='typescript']::before,
+.gatsby-highlight[data-language='ts']::before {
+  content: 'ts';
+}
+.gatsby-highlight[data-language='tsx']::before {
+  content: 'tsx';
+}
+
+.gatsby-highlight[data-language='html']::before {
+  content: 'html';
+  background: #005A9C;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='xml']::before {
+  content: 'xml';
+  background: #00749c;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='php']::before {
+  content: 'php';
+  background: #6699cc;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='css']::before {
+  content: 'css';
+  background: #ff9800;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='mdx']::before,
+.gatsby-highlight[data-language='c']::before {
+  background: #f9ac00;
+  font-weight: 400;
+}
+.gatsby-highlight[data-language='c']::before {
+  content: 'c';
+}
+.gatsby-highlight[data-language='mdx']::before {
+  content: 'mdx';
+}
+
+.gatsby-highlight[data-language='shell']::before {
+  content: 'shell';
+  background: #a7a7a7;
+}
+.gatsby-highlight[data-language='shell'] .token.comment {
+  color: var(--codeTextColor2);
+}
+.gatsby-highlight[data-language='bash']::before,
+.gatsby-highlight[data-language='sh']::before,
+.gatsby-highlight[data-language='conf']::before {
+  background: #c0c0c0;
+  color: #36313d;
+}
+.gatsby-highlight[data-language='bash']::before,
+.gatsby-highlight[data-language='sh']::before {
+  content: 'bash';
+}
+.gatsby-highlight[data-language='sh']::before {
+  content: 'conf';
+}
+
+.gatsby-highlight[data-language='markdown']::before {
+  content: 'md';
+}
+
+.gatsby-highlight[data-language='json']::before,
+.gatsby-highlight[data-language='json5']::before {
+  content: 'json';
+  background: linen;
+  color: #36313d;
+}
+
+.gatsby-highlight[data-language='diff']::before {
+  content: 'diff';
+  background: #e6ffed;
+}
+
+.gatsby-highlight[data-language='text']::before {
+  content: '';
+  background: transparent;
+}
+
+.gatsby-highlight[data-language='yaml']::before,
+.gatsby-highlight[data-language='sass']::before {
+    background: #ffa8df;
+}
+.gatsby-highlight[data-language='yaml']::before { content: 'yaml'; }
+.gatsby-highlight[data-language='sass']::before { content: 'sass'; }
+
+.gatsby-highlight[data-language='rb']::before,
+.gatsby-highlight[data-language='ruby']::before {
+  content: 'rb';
+  background: #CC342D;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='erb']::before {
+  content: 'erb';
+  background: #de7768;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='tex']::before {
+  content: 'tex';
+  background: #de6894;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='graphql']::before {
+    content: 'GraphQL';
+    background: #E10098;
+    color: #ffffff;
+}
+
+.gatsby-highlight[data-language='lisp']::before {
+  content: 'lisp';
+  background: #7F5AB6;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='vue']::before {
+  content: 'vue';
+  background: #4fc08d;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='py']::before,
+.gatsby-highlight[data-language='python']::before {
+  content: 'py';
+  background: #009933;
+  color: #ffffff;
+}
+
+.gatsby-highlight[data-language='django']::before {
+  content: 'html';
+  background: #44B78B;
+  color: #ffffff;
+}

@@ -1,0 +1,31 @@
+.footer {
+  min-height: 50px;
+  margin-top: 5rem;
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.footer__link {
+  display: block;
+}
+
+.footer a[target="_blank"]:after {
+  content: '';
+}
+
+.footer__link svg {
+  width: 86px;
+  height: 15px;
+}
+
+.footer__link:nth-child(2) svg {
+  height: 20px;
+}
+
+@media (min-width: 640px) {
+  .footer__link svg {
+    width: 125px;
+  }
+}

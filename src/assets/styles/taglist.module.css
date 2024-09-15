@@ -1,0 +1,46 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tags {
+  padding: 0;
+  margin: 0;
+}
+
+.tag {
+  padding: 0.5rem;
+  list-style-type: none;
+  position: relative;
+}
+
+.tag a {
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+.tag a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 640px) {
+  .tags {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  }
+
+  .tag {
+    border-bottom: 1px solid rgba(0,96,160,.15);
+  }
+}

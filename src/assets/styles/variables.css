@@ -1,0 +1,57 @@
+:root {
+  --hslPercent: 0%;
+  --textColor: #3f3f3f;
+  --bgColor: #ffffff;
+  --bgTags: #f7f7f7;
+  --sidebarColor: #e8e8e8;
+  --textSmoothColor: hsl(0,0%,calc(74.9% + var(var(--hslPercent))));
+  --yellowColor: #ffd01b;
+  --redColor: #cc3311;
+  --linkColor: #70A0B0;
+  --linkStyle: 'none';
+  --vikingColor: #34adc5;
+  --iconColor: rgba(0, 0, 0, 0.8);
+  --bodyBgColor: #DFDBE5;
+  --borderColor: #DFDBE5;
+  --shadow: 0 0 1px rgb(0 0 180 / 10%), 0 0 1px rgb(0 0 80 / 6%), 0 2px 2px rgb(0 0 80 / 6%), 0 2px 2px rgb(0 0 80 / 6%), 0 1px 1px rgb(0 0 80 / 1%), 0 8px 8px rgb(0 0 80 / 6%);
+}
+.inverted {
+  --hslPercent: 20%;
+  --textColor: #a9a9b3;
+  --bgColor: #1d2026;
+  --bgTags: rgba(0, 0, 0, 0.5);
+  --sidebarColor: hsl(250,10%,10%);
+  --iconColor: rgba(255, 255, 255, 0.8);
+  --bodyBgColor: #1d2026;
+  --borderColor: rgba(255, 255, 255, 0.2);
+  --linkColor: #a9a9b3;
+  --linkStyle: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hslPercent: 20%;
+    --textColor: #a9a9b3;
+    --bgColor: #1d2026;
+    --bgTags: rgba(0, 0, 0, 0.5);
+    --sidebarColor: hsl(250,10%,10%);
+    --iconColor: rgba(255, 255, 255, 0.8);
+    --bodyBgColor: #1d2026;
+    --borderColor: rgba(255, 255, 255, 0.2);
+    --linkColor: #a9a9b3;
+    --linkStyle: underline;
+  }
+  .inverted {
+    --hslPercent: 0%;
+    --textColor: #3f3f3f;
+    --bgColor: #ffffff;
+    --bgTags: #f7f7f7;
+    --sidebarColor: #e8e8e8;
+    --iconColor: rgba(0, 0, 0, 0.8);
+    --bodyBgColor: #DFDBE5;
+    --borderColor: #DFDBE5;
+    --linkColor: #70A0B0;
+    --linkStyle: 'none';
+  }
+}
+

@@ -1,0 +1,17 @@
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.details {
+  margin: 1rem auto 2rem;
+}
+
+.list {
+  margin-top: 1rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.list__item {
+  margin-bottom: 0.5rem;
+}

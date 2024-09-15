@@ -1,0 +1,40 @@
+a.link {
+  color: var(--textColor);
+  border-style: dotted;
+  border-color: var(--textColor);
+  border-left-width: 0;
+  border-right-width:0;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  text-decoration: none !important;
+  padding: 5px 15px;
+}
+
+a.link:hover {
+  border-style: dashed;
+}
+
+.link__separator {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--textColor);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.link__title {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--textColor);
+  margin-top: 10px;
+  display: block;
+}
+
+.links {
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: row wrap;
+  align-items: center;
+}

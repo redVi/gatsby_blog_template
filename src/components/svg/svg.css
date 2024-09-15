@@ -1,0 +1,17 @@
+.icon {
+  cursor: pointer;
+  fill: var(--iconColor);
+}
+
+.icon_twitter,
+.icon_telegram,
+.icon_mail {
+  margin: 0 10px;
+  fill: var(--textColor);
+}
+
+.icon_search,
+.icon_theme {
+  width: 22px;
+  height: 22px;
+}

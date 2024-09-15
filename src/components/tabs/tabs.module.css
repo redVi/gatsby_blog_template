@@ -1,0 +1,59 @@
+.tabbed {
+  /* margin: 1rem auto 0; */
+}
+
+.tabs {
+  perspective: 300px;
+}
+
+.tab__buttons {
+  width: 100%;
+  display: inline-flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--vikingColor);
+}
+
+.tab__button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: block;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color .3s;
+  border: 1px solid var(--vikingColor);
+  border-bottom: none;
+  color: var(--textColor);
+  white-space: nowrap;
+}
+
+.tab__button:not(:last-child) {
+  margin-right: 5px;
+}
+
+.tab__button_active {
+  background-color: var(--vikingColor);
+  color: white;
+}
+
+.tab_single {
+  position: absolute;
+  padding: 1.5rem 0 1rem;
+  line-height: 1.4em;
+  opacity: 0;
+  transform: rotateX(-20deg);
+  transform-origin: top center;
+  /* transition: opacity .3s, transform 0.5s; */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tab_single_active {
+  pointer-events: inherit;
+}
+
+@media (min-width: 960px) {
+  .tab__buttons {
+    width: auto;
+  }
+}

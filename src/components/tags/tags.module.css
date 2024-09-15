@@ -1,0 +1,56 @@
+.tags {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.tags a {
+  background-color: #333;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  margin: 1px 1px 3px;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  text-decoration: none;
+}
+
+.tags li {
+  margin: 7px 0;
+}
+
+.tags li:not(:last-child) {
+  margin-right: 5px;
+}
+
+.tags a:hover {
+  background-color: #bfbfbf;
+  text-decoration: none;
+}
+
+.tags_page li {
+  margin: 0 0 35px;
+}
+
+.tags_page a {
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+}
+
+.tags_header {
+  grid-row: 2;
+  margin: 10px auto;
+}
+
+@media (min-width: 640px) {
+  .tags_header {
+    grid-row: 1;
+    grid-column: 2;
+    margin: 10px;
+  }
+}
