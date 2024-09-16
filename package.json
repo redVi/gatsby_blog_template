@@ -3,7 +3,7 @@
   "version": "5.2.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development gatsby develop -p 8080",
+    "dev": "NODE_ENV=development gatsby develop",
     "build": "NODE_ENV=production gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

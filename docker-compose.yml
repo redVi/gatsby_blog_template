@@ -1,14 +1,14 @@
 services:
   gatsby:
     container_name: gatsby
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    build: '.'
+    command: gatsby develop --port 80 --host 0.0.0.0
+    env_file: .env-local
     volumes:
       - '.:/app'
       - node_modules:/app/node_modules
     ports:
-      - "8080:8080"
+      - "8000:80"
     environment:
       NODE_ENV: development
       CHOKIDAR_USEPOLLING: "1"

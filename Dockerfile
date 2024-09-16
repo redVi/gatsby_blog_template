@@ -2,13 +2,14 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+COPY . /app
+
 RUN npm install
-COPY . .
+RUN npm install -g gatsby-cli
 
-EXPOSE 8080
+RUN gatsby build
 
-ENV CHOKIDAR_USEPOLLING=1
-ENV GATSBY_WEBPACK_PUBLICPATH=/
+EXPOSE 80
 
-CMD ["npm", "run", "dev"]
+# CMD gatsby serve --port 80 --host 0.0.0.0
+CMD gatsby develop --port 80 --host 0.0.0.0
